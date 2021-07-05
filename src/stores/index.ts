@@ -1,9 +1,12 @@
-import CountStore from "./count/count.store";
+import CountStore from './count/count.store';
+import TourStore from './tour/tour.store';
 
 class RootStore {
   counter: CountStore;
+  tour: TourStore;
   constructor() {
     this.counter = new CountStore();
+    this.tour = new TourStore();
   }
 }
 

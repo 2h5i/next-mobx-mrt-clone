@@ -1,10 +1,13 @@
 import { inject, observer } from 'mobx-react';
-import styled from 'styled-components';
+import React from 'react';
+import { css } from '@emotion/react';
+import { styled } from '@emotion/styled';
 
-const StyledCounter = styled.div`
+import { FilterList, Header, TourList } from '../components/';
+
+const StyledTour = styled.div`
   border: 1px solid red;
 `;
-
 const Counter = props => {
   const handleIncrease = () => {
     props.counter.increase();
@@ -14,14 +17,13 @@ const Counter = props => {
     props.counter.decrease();
   };
   return (
-    <StyledCounter>
-      Welcome to Next.js!
-      <div> 숫자 :{props.counter.number}</div>
-      <div>
-        <button onClick={handleIncrease}>+</button>
-        <button onClick={handleDecrease}>-</button>
-      </div>
-    </StyledCounter>
+    <StyledTour>
+      <Header />
+      <FlexBox>
+        <FilterList />
+        <TourList />
+      </FlexBox>
+    </StyledTour>
   );
 };
 
