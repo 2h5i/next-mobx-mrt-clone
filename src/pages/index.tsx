@@ -1,4 +1,9 @@
 import { inject, observer } from 'mobx-react';
+import styled from 'styled-components';
+
+const StyledCounter = styled.div`
+  border: 1px solid red;
+`;
 
 const Counter = props => {
   const handleIncrease = () => {
@@ -9,14 +14,14 @@ const Counter = props => {
     props.counter.decrease();
   };
   return (
-    <div>
+    <StyledCounter>
       Welcome to Next.js!
       <div> 숫자 :{props.counter.number}</div>
       <div>
         <button onClick={handleIncrease}>+</button>
         <button onClick={handleDecrease}>-</button>
       </div>
-    </div>
+    </StyledCounter>
   );
 };
 
