@@ -7,11 +7,13 @@
           "loose": true
         }
       }
-    ]
+    ],
+    "@emotion/babel-preset-css-prop"
   ],
   "plugins": [
     // mobx decorator options
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    ["@babel/plugin-proposal-class-properties", { "loose": true }]
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    ["@emotion/babel-plugin"]
   ]
 }

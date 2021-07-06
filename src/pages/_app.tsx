@@ -1,6 +1,6 @@
-import type { AppProps } from "next/app";
-import { Provider } from "mobx-react";
-import RootStore from "../stores";
+import type { AppProps } from 'next/app';
+import { Provider } from 'mobx-react';
+import RootStore from '../stores';
 
 const root = new RootStore();
 
