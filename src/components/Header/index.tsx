@@ -1,6 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
+import { MobileAppBar } from './MobileAppBar';
+import { PcAppBar } from './PcAppBar';
 
 const StyledHeader = styled.div`
   border-bottom: 1px solid #dee2e6;
@@ -11,6 +15,10 @@ const StyledMenu = styled.div`
 `;
 
 export const Header = () => {
+  const isPc = useMediaQuery({
+    query: '(min-width:768px)'
+  });
+
   const menus = [
     '홈',
     '항공권',
@@ -20,10 +28,12 @@ export const Header = () => {
     '랜선투어',
     '할인혜택'
   ];
+
+  console.log(isPc, 'ISPC');
   return (
     <StyledHeader>
       <div style={{ maxWidth: 1060, margin: '0 auto' }}>
-        <div
+        {/* <div
           style={{
             display: 'flex',
             width: '100%',
@@ -45,7 +55,10 @@ export const Header = () => {
             <StyledMenu>로그인</StyledMenu>
             <StyledMenu>회원가입</StyledMenu>
           </div>
-        </div>
+        </div> */}
+        {/* <PcAppBar />
+        <MobileAppBar /> */}
+        {isPc ? <PcAppBar /> : <MobileAppBar />}
         <div style={{ display: 'flex' }}>
           {menus.map(menu => (
             <StyledMenu key={menu}>{menu}</StyledMenu>
@@ -55,11 +68,3 @@ export const Header = () => {
     </StyledHeader>
   );
 };
-
-{
-  /* <Image
-src='https://dffoxz5he03rp.cloudfront.net/build/production/582952803eb9e53f0b9c581c8f91b9b749f9b0c6/203bb94a1437a3d33bca75e5e77ab705.png'
-width={128}
-height={28}
-/> */
-}

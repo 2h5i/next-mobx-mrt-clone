@@ -1,5 +1,7 @@
 import CountStore from './count/count.store';
 import TourStore from './tour/tour.store';
+import { enableStaticRendering } from 'mobx-react';
+enableStaticRendering(typeof window === 'undefined');
 
 class RootStore {
   counter: CountStore;
