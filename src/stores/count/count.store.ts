@@ -1,4 +1,4 @@
-import { action, makeObservable, observable } from "mobx";
+import { action, makeObservable, observable } from 'mobx';
 
 class CountStore {
   constructor() {
@@ -9,7 +9,6 @@ class CountStore {
 
   @action
   increase = () => {
-    console.log("@@");
     this.number++;
   };
 

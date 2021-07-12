@@ -1,8 +1,6 @@
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from '../../utils/hooks/useMediaQuery';
+
 import { MobileAppBar } from './MobileAppBar';
 import { PcAppBar } from './PcAppBar';
 
@@ -15,9 +13,7 @@ const StyledMenu = styled.div`
 `;
 
 export const Header = () => {
-  const isPc = useMediaQuery({
-    query: '(min-width:768px)'
-  });
+  const isBreakPoint = useMediaQuery(700);
 
   const menus = [
     '홈',
@@ -29,7 +25,6 @@ export const Header = () => {
     '할인혜택'
   ];
 
-  console.log(isPc, 'ISPC');
   return (
     <StyledHeader>
       <div style={{ maxWidth: 1060, margin: '0 auto' }}>
@@ -58,7 +53,7 @@ export const Header = () => {
         </div> */}
         {/* <PcAppBar />
         <MobileAppBar /> */}
-        {isPc ? <PcAppBar /> : <MobileAppBar />}
+        {isBreakPoint ? <PcAppBar /> : <MobileAppBar />}
         <div style={{ display: 'flex' }}>
           {menus.map(menu => (
             <StyledMenu key={menu}>{menu}</StyledMenu>
@@ -67,4 +62,8 @@ export const Header = () => {
       </div>
     </StyledHeader>
   );
+};
+
+export const getServerSideProps = () => {
+  return { props: {} };
 };

@@ -14,13 +14,16 @@
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
-    "@types/react-responsive": "^8.0.3",
     "mobx": "^6.3.2",
     "mobx-react": "^7.2.0",
+    "moment": "^2.29.1",
     "next": "^11.0.1",
+    "rc-slider": "^9.7.2",
     "react": "^17.0.2",
+    "react-dates": "^21.8.0",
     "react-dom": "^17.0.2",
-    "react-responsive": "^8.2.0"
+    "react-responsive": "^8.2.0",
+    "ua-parser-js": "^0.7.28"
   },
   "devDependencies": {
     "@types/react": "^17.0.13",
