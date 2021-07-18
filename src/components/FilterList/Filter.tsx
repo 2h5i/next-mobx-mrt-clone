@@ -9,6 +9,7 @@ import 'react-dates/lib/css/_datepicker.css';
 
 import Image from 'next/image';
 import { RadioGroup, CheckboxGroup } from '../parts';
+// import {CheckboxGroup} from '../parts/CheckboxGroup';
 
 const StyledFilter = styled.div`
   width: 100%;
@@ -107,7 +108,7 @@ export const Filter = () => {
           <CheckboxGroup
             values={['서울', '경주', '마드리드', '바르셀로나']}
             checkedList={cities}
-            onChangeCheckedList={v => setCities(v)}
+            onChangeCheckedList={setCities}
           />
         </div>
         <hr />

@@ -1,2 +1,2 @@
-export * from './RadioGroup/RadioGroup';
-export * from './CheckboxGroup/CheckboxGroup';
+export * from './CheckboxGroup';
+export * from './RadioGroup';

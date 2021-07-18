@@ -3,20 +3,23 @@ import React from 'react';
 interface CheckboxGroupoProps {
   values: string[];
   checkedList: string[];
-  onChangeCheckedList: (v: string[]) => void;
+  onChangeCheckedList: any;
 }
 
 export const CheckboxGroup = (props: CheckboxGroupoProps) => {
   const { values, checkedList, onChangeCheckedList } = props;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(checkedList);
-    const pushed = checkedList.push(e.target.value);
-    onChangeCheckedList(checkedList);
-    console.log(checkedList, '??');
-    console.log(pushed, 'PUSHED');
-    console.log(e.target);
+    if (!checkedList.includes(e.target.value)) {
+      onChangeCheckedList(prev => [...prev, e.target.value]);
+    } else {
+      onChangeCheckedList(prev => {
+        const filtered = prev.filter(v => v !== e.target.value);
+        return filtered;
+      });
+    }
   };
+
   return (
     <div>
       {values.map(v => (
@@ -26,7 +29,7 @@ export const CheckboxGroup = (props: CheckboxGroupoProps) => {
             id={v}
             name={v}
             onChange={handleChange}
-            checked={checkedList.indexOf(v) !== -1 ? true : false}
+            checked={checkedList.includes(v)}
             value={v}
           />
           <label htmlFor={v}>{v}</label>
